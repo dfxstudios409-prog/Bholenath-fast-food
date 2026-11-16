@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Bholenath Fast Food</title>
+<style>
+:root{--bg:#3b0f14;--card:#faf0dc;--text:#2b1a0e;--muted:#7a6552;--accent:#a4161a;--gold:#d4a85a;--line:#e4cfa8;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg opacity='.13' font-size='40'%3E%3Ctext x='14' y='56'%3E🍔%3C/text%3E%3Ctext x='130' y='100'%3E🍕%3C/text%3E%3Ctext x='40' y='176'%3E🍜%3C/text%3E%3Ctext x='150' y='214'%3E🥘%3C/text%3E%3Ctext x='196' y='40'%3E🥪%3C/text%3E%3C/g%3E%3C/svg%3E");color:#f6ead2;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13px;line-height:1.4}
+header{text-align:center;padding:22px 12px 8px}
+h1{margin:0;font-size:clamp(20px,5vw,30px);color:var(--gold)}
+header p{margin:4px 0 8px;color:#d9c9a8;font-size:12px}
+.contact{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;font-size:13px}
+.contact a{color:var(--gold);text-decoration:none;font-weight:600}
+main{max-width:960px;margin:0 auto;padding:0 12px 28px}
+h2{border-bottom:1px solid var(--gold);color:var(--gold);font-size:16px;padding-bottom:4px;margin:18px 0 10px}
+#menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.cat,.name{color:var(--text)}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.cat h3{margin:0 0 2px;font-size:14px;color:var(--accent)}
+.cat small{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.item{display:flex;justify-content:space-between;gap:8px;padding:2px 0;border-bottom:1px dashed var(--line);font-size:12px}
+.item:last-child{border-bottom:0}
+.item b{white-space:nowrap;color:var(--accent)}
+.team{text-align:center}
+.photo{width:100%;max-width:520px;margin:0 auto;aspect-ratio:16/9;border-radius:10px;border:2px dashed var(--gold);background:rgba(250,240,220,.08);display:flex;align-items:center;justify-content:center;color:#d9c9a8}
+.names{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px auto 0;max-width:520px}
+.name{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
+.name small{display:block;color:var(--muted);font-size:11px}
+.name strong{font-size:14px}
+footer{text-align:center;padding:0 12px 20px;color:#d9c9a8}
+footer a{color:var(--gold);text-decoration:none;font-weight:600}
+
+img.photo{display:block;object-fit:cover;border:2px solid var(--gold)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;gap:8px;background:#260a0d;border-bottom:1px solid var(--gold);padding:8px 12px;color:var(--gold)}
+.btn{font:inherit;font-size:12px;font-weight:600;background:var(--gold);color:#2b1a0e;border:0;border-radius:8px;padding:6px 10px;cursor:pointer}
+.btn.alt{background:rgba(212,168,90,.18);color:var(--gold);border:1px solid var(--gold)}
+.adminbtn{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:5}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.form label{display:block;font-size:11px;color:#d9c9a8}
+input{font:inherit;font-size:12px;padding:5px 6px;border:1px solid var(--line);border-radius:6px;background:#fff;color:#2b1a0e;min-width:0;width:100%}
+.row{display:flex;gap:4px;margin:3px 0}
+.row .nm{flex:1}.row .pr{width:84px;flex:none}
+.thumb{width:100%;max-width:200px;border-radius:8px;margin-top:6px}
+
+.top{background:#260a0d;border-bottom:1px solid var(--gold);text-align:center;padding:7px 10px;font-size:14px;font-weight:700;color:var(--gold)}
+.top a{color:var(--gold);text-decoration:none;margin:0 6px}
+.vegbadge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#1a6b30;font-weight:700;font-size:11px;border-radius:999px;padding:3px 10px;margin-bottom:6px}
+.addr{margin:6px 0 8px;font-size:12px;color:#f0e3c8}
+.qr{display:inline-flex;align-items:center;gap:10px;background:rgba(250,240,220,.1);border:1px solid var(--gold);border-radius:10px;padding:8px 10px;text-align:left;font-size:12px}
+#qr{background:#fff;padding:5px;border-radius:6px;line-height:0}
+#qr img,#qr canvas{display:block}
+.qr a{color:var(--gold);font-weight:600}
+.about{max-width:560px;margin:12px auto 0;color:#f0e3c8;font-size:13px}
+.modal{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;padding:16px}
+.box{background:var(--card);color:var(--text);border-radius:12px;padding:16px;width:100%;max-width:300px;display:grid;gap:8px}
+.err{color:#a4161a;font-size:12px;min-height:14px}
+textarea{font:inherit;font-size:12px;padding:5px 6px;border:1px solid var(--line);border-radius:6px;background:#fff;color:#2b1a0e;width:100%;min-height:90px}
+.form .wide{grid-column:1/-1}
+footer a[data-a]{opacity:.8;margin-left:8px;font-weight:400}
+.item span::before{content:"";display:inline-block;width:9px;height:9px;border:1.5px solid #1a8f3c;border-radius:2px;margin-right:6px;background:radial-gradient(circle,#1a8f3c 38%,transparent 42%);vertical-align:-1px}
+.row .nm::before{content:none}
+</style>
+<style>artifact-sync,artifact-local{display:contents}</style><style>artifact-sync,artifact-local{display:contents}</style></head><body><div id="app"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script id="state" type="application/json">{"owner":"Laxman Bhai","sub":"Bhawani bhai","photo":"","c1":"9974365843","c2":"8401805844","menu":[{"n":"Fix Lunch","note":"11:00 am to 3:00 pm","items":[["Table Fix Lunch (Dine-in): Paneer Subji / Veg. Subji, Dal / Rice / 3 Roti, Butter Milk / Papad / Sweet - 1 Pcs.","150"],["Pack Lunch: Paneer Subji / Veg. Subji, Dal / Rice / 3 Roti, Butter Milk / Papad / Sweet - 1 Pcs. (Home delivery, charge included)","160"]]},{"n":"Papad Salad","note":"","items":[["Roasted Papad","30"],["Fry Papad","30"],["Masala Papad","50"],["Veg. Raita","70"],["Curd","40"],["Green Salad","70"],["Tomato Salad","60"],["Sweet Lassi","65"],["Butter Milk","20"]]},{"n":"Soup","note":"","items":[["Hot N Sour Veg. Soup","110"],["Manchow Soup","110"],["Sweet Corn Veg. Soup","100"],["Tomato Soup","100"],["Cheese Corn Tomato Soup","120"],["Mushroom Soup","110"],["Veg Noodles Soup","100"]]},{"n":"Starter","note":"","items":[["Paneer Chilly Dry (12 Pcs.)","230"],["Paneer 65 (12 Pcs.)","230"],["Harabhara Kabab","210"],["Mushroom Chilly Dry","220"],["Paneer Manchurian Dry","180"]]},{"n":"Oven Bake","note":"","items":[["Baked Macaroni","220"],["Baked Macaroni with P/A","230"],["Baked Spaghetti with P/A","220"],["Vegetable Au Gratin","210"]]},{"n":"Sizzler","note":"","items":[["Mix Grill Sizzler","310"],["Chinese Sizzler","300"]]},{"n":"Rice","note":"","items":[["Plain Rice","100"],["Jeera Rice","110"],["Punjabi Veg. Pulav","110"],["Veg. Biryani","140"],["Hyderabadi Biryani (With Curd)","160"],["Kashmiri Pulav (Sweet)","150"]]},{"n":"South Indian","note":"Price: Oil / Amul Butter","items":[["Masala Dosa","110 / 130"],["Plain Dosa","100 / 120"],["Plain Paper Dosa","110 / 140"],["Masala Paper Dosa","140 / 150"],["Mysore Masala","120 / 140"],["Mysore Plain","110 / 130"],["Mixed Uttapam","120 / 140"],["Masala Uttapam","120 / 140"],["Onion Uttapam","120 / 140"],["Tomato Uttapam","110 / 130"],["Plain Uttapam","110 / 130"],["Cheese Masala Dosa","130 / 140"],["Cheese Plain Dosa","120 / 130"],["Gwalior Masala Dosa","– / 160"],["Gwalior Plain Dosa","– / 150"]]},{"n":"Bhaji Pav","note":"Price: Oil / Amul Butter","items":[["Bhaji Pav","110 / 140"],["Bhaji","100 / 120"],["Jain Bhaji Pav","120 / 140"],["Jain Bhaji","110 / 120"],["Cheese Bhaji Pav","150 / 160"],["Cheese Bhaji","130 / 150"],["Pulav","110 / 130"],["Cheese Pulav","140 / 160"],["Masala Pav","120 / 150"],["Boil Bhaji Pav","140 / 160"],["Extra Pav","20 / 25"],["Garlic Chutney","90 / 110"]]},{"n":"Chinese","note":"","items":[["Veg. Hakka Noodles","110"],["Veg. Manchurian Noodles","120"],["Veg. Chilli Garlic Noodles","110"],["Veg. Schezwan Noodles","110"],["Veg. Manchurian Dry","110"],["Veg. Manchurian Gravy","120"],["Chinese Bhel","130"],["Veg. Fried Rice","110"],["Veg. Schezwan Fried Rice","110"],["Manchurian Fried Rice","120"],["Paneer Manchurian Noodles","160"],["Mushroom Fry Rice","160"],["Paneer Manchurian Fry Rice","160"]]},{"n":"Kofta","note":"","items":[["Kaju Kofta","190"],["Malai Kofta","150"],["Cheese Kofta","200"],["Nargis Kofta","180"],["Paneer Kofta","180"],["Veg. Kofta","150"]]},{"n":"Paneer Ka Kamal","note":"","items":[["Paneer Special Bholenath","210"],["Paneer Angara","210"],["Paneer Patiyala","190"],["Paneer Butter Masala","180"],["Paneer Pasanda","210"],["Paneer Chatpata","180"],["Paneer Maharani","180"],["Paneer Tawa Masala","180"],["Paneer Handi","190"],["Paneer Kaju Masala","230"],["Paneer Balti","180"],["Paneer Tufani","180"],["Paneer Kadai","180"],["Paneer Lavabdar","210"],["Paneer Tikka Masala","170"],["Mutter Paneer","150"],["Cheese Butter Masala","230"],["Cheese Paneer Butter Masala","240"],["Khoya Kaju (Sweet)","230"],["Kaju Butter Masala","230"],["Cheese Kaju Butter Masala","240"],["Navratan Korma (Sweet)","160"],["Paneer Bhurji","190"],["Paneer Shahi Korma","180"],["Kaju Kari","190"],["Kaju Kadai","200"],["Paneer Rajwadi","190"],["Paneer Lasniya","180"],["Paneer Adraki","170"],["Paneer Methi Masala","190"],["Paneer Malai Methi","190"],["Cheese Angoori","200"]]},{"n":"Tandoor","note":"","items":[["Plain Roti","20"],["Butter Roti","25"],["Butter Naan","60"],["Plain Naan","50"],["Garlic Naan","100"],["Cheese Naan","110"],["Hariyali Naan","110"],["Plain Kulcha","40"],["Butter Kulcha","50"],["Plain Paratha","40"],["Butter Paratha","45"],["Aloo Paratha (With Curd)","100"],["Stuff Paratha (With Curd)","120"],["Cheese Garlic Naan","140"],["Paneer Paratha","120"],["Double Roti","40"]]},{"n":"Vegetable","note":"","items":[["Plain Palak","130"],["Corn Palak","140"],["Lahsuniya Palak","140"],["Palak Paneer","150"],["Aloo Palak","130"],["Aloo Jeera","120"],["Aloo Lahsuniya","130"],["Aloo Mutter","130"],["Aloo Masala","130"],["Sev Tomato","120"],["Sev Masala","120"],["Dal Makhani","160"],["Dal Tadka","130"],["Dal Butter Fry","130"],["Dal Palak","130"],["Dal Fry","120"],["Dum Aloo","160"]]},{"n":"Veg. Subji","note":"","items":[["Veg. Special Bholenath","180"],["Veg. Patiyala","170"],["Veg. Khada Masala","180"],["Veg. Angara","190"],["Veg. Diwani Handi","190"],["Veg. Tawa Masala","170"],["Veg. Kolhapuri","160"],["Veg. Jaipuri","170"],["Veg. Tufani","170"],["Veg. Balti","170"],["Veg. Handi","170"],["Veg. Kadai","160"],["Veg. Makkhan Wala","170"],["Mix Veg.","140"],["Mushroom Masala","200"],["Mushroom Butter Masala","220"],["Corn Tomato Bhartha","180"],["Veg. Shahi Korma","160"],["Chana Masala","140"],["Bhindi Masala","120"],["Bhindi Kurkure","130"],["Baingan Bhartha","130"],["Veg. Hyderabadi","160"]]},{"n":"Chapati","note":"","items":[["Butter Chapati","17"],["Plain Chapati","12"],["Tawa Paratha","35"]]}],"ph":"21e9vi5z6qw","about":"Lakshmanbhai is the proud owner of The Bholenath Fast Food. With a warm smile and a lot of care, he makes sure every guest feels welcome, just like family. Here you will find fresh, tasty, pure vegetarian food, from Bhaji Pav and South Indian dosas to Punjabi sabzis and Chinese favourites, all made with quality ingredients and served at fair prices. Come once and you will want to come back.","addr":"Bholenath Fast Food, Nr. Riverside Park, New Vasna, Ahmedabad - 380007","v":1794856579267}</script><script id="code">(function(){
+var QS='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+var S=JSON.parse(document.getElementById('state').textContent),draft=null,editing=false,askpw=false,saving=false,canEdit=false,app=document.getElementById('app');
+if(!window.claude){try{var L=JSON.parse(localStorage.getItem('bholenath_state')||'null');if(L&&(L.v||0)>(S.v||0))S=L;}catch(e){}}
+function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function hp(s){var h1=0xdeadbeef,h2=0x41c6ce57,i,c;s='bhole|'+s;for(i=0;i<s.length;i++){c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return (4294967296*(2097151&h2)+(h1>>>0)).toString(36);}
+function tel(n){return n?'<a href="tel:'+esc(String(n).replace(/\s/g,''))+'">'+esc(n)+'</a>':'';}
+function phones(s){return [tel(s.c1),tel(s.c2)].filter(Boolean).join(' / ');}
+function mapUrl(a){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(a||'Bholenath Fast Food New Vasna Ahmedabad');}
+var VEG='<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="2" fill="#fff" stroke="#1a8f3c" stroke-width="2.5"/><circle cx="12" cy="12" r="6" fill="#1a8f3c"/></svg>';
+function view(){var s=S,p=phones(s),h='';
+if(p)h+='<div class="top"><span>📞</span> '+p+'</div>';
+h+='<header><div class="vegbadge">'+VEG+' 100% Pure Veg</div><h1>The Bholenath Fast Food</h1><p>Bhaji Pav · Punjabi · Chinese · South Indian</p>';
+if(s.addr)h+='<div class="addr">📍 '+esc(s.addr)+'</div>';
+h+='<div class="qr"><div id="qr"></div><div><b>Scan to open map</b><br><a href="'+esc(mapUrl(s.addr))+'" target="_blank" rel="noopener">Open in Maps</a></div></div></header><main><section class="team"><h2>Our Team</h2>';
+h+=(s.photo?'<img class="photo" src="'+esc(s.photo)+'" alt="Owner team photo">':'<div class="photo">Owner team photo goes here</div>')+'<div class="names"><div class="name"><small>Owner</small><strong>'+esc(s.owner)+'</strong></div>'+(s.sub?'<div class="name"><small>Sub Owner</small><strong>'+esc(s.sub)+'</strong></div>':'')+'</div>'+(s.about?'<p class="about">'+esc(s.about)+'</p>':'')+'</section><section><h2>Menu</h2><div id="menu">';
+s.menu.forEach(function(c){h+='<div class="cat"><h3>'+esc(c.n)+'</h3>'+(c.note?'<small>'+esc(c.note)+'</small>':'');c.items.forEach(function(i){h+='<div class="item"><span>'+esc(i[0])+'</span><b>₹'+esc(i[1])+'</b></div>';});h+='</div>';});
+h+='</div></section></main><footer>'+(p?'Contact: '+p+' ':'')+'<a href="#" data-a="admin">Admin</a></footer>';
+if(askpw)h+='<div class="modal"><div class="box"><b>Admin login</b><input type="password" id="pw" placeholder="Password" autocomplete="off"><div class="err" id="pe"></div><div><button class="btn" data-a="login">Login</button> <button class="btn alt" data-a="closepw">Close</button></div></div></div>';
+return h;}
+function inp(attrs,v,ph,cls){return '<input'+(cls?' class="'+cls+'"':'')+' '+attrs+' value="'+esc(v)+'"'+(ph?' placeholder="'+ph+'"':'')+'>';}
+function edit(){var s=draft,h='<div class="bar"><b>Admin panel</b><span><button class="btn" data-a="save"'+(saving?' disabled':'')+'>'+(saving?'Saving…':'Save changes')+'</button> <button class="btn alt" data-a="cancel">Cancel</button></span></div><main>'+(window.claude?'':'<p class="about">This is a copy of the page: Save keeps changes in this browser only. To change the live website for everyone, edit on the claude.ai link.</p>')+'<h2>Our Team &amp; Contact</h2><div class="form">';
+h+='<label>Owner name'+inp('data-f="owner"',s.owner)+'</label><label>Sub owner name'+inp('data-f="sub"',s.sub)+'</label><label class="wide">About the owner<textarea data-f="about">'+esc(s.about)+'</textarea></label>';
+h+='<label>Team photo<input type="file" accept="image/*" data-a="photo"></label>'+(s.photo?'<div><img class="thumb" src="'+esc(s.photo)+'"><br><button class="btn alt" data-a="rmphoto">Remove photo</button></div>':'');
+h+='<label>Contact number 1'+inp('data-f="c1"',s.c1)+'</label><label>Contact number 2'+inp('data-f="c2"',s.c2)+'</label><label class="wide">Address (also used for the map QR)'+inp('data-f="addr"',s.addr)+'</label><label class="wide">New admin password (leave empty to keep the current one)'+inp('data-f="newpw"',s.newpw||'')+'</label></div><h2>Menu</h2><div id="menu">';
+s.menu.forEach(function(c,ci){h+='<div class="cat"><div class="row">'+inp('data-c="'+ci+'" data-f="n"',c.n,'Category name','nm')+'<button class="btn alt" data-a="delcat" data-c="'+ci+'">✕</button></div><div class="row">'+inp('data-c="'+ci+'" data-f="note"',c.note,'Note (optional)','nm')+'</div>';
+c.items.forEach(function(it,ii){var a='data-c="'+ci+'" data-i="'+ii+'"';h+='<div class="row">'+inp(a+' data-f="0"',it[0],'Item name','nm')+inp(a+' data-f="1"',it[1],'Price','pr')+'<button class="btn alt" data-a="delitem" '+a+'>✕</button></div>';});
+h+='<button class="btn alt" data-a="additem" data-c="'+ci+'">+ Add item</button></div>';});
+h+='</div><p><button class="btn" data-a="addcat">+ Add category</button></p></main>';return h;}
+function drawQR(){var el=document.getElementById('qr');if(!el||!window.QRCode)return;try{el.innerHTML='';new QRCode(el,{text:mapUrl(S.addr),width:96,height:96,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}catch(e){}}
+function render(){app.innerHTML=editing?edit():view();if(!editing)drawQR();if(askpw){var p=document.getElementById('pw');if(p)p.focus();}}
+function login(){var p=document.getElementById('pw'),v=p?p.value:'';if(hp(v)===S.ph){askpw=false;editing=true;draft=JSON.parse(JSON.stringify(S));render();window.scrollTo(0,0);}else{var e=document.getElementById('pe');if(e)e.textContent='Wrong password.';}}
+app.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='pw')login();});
+app.addEventListener('input',function(e){var t=e.target,d=t.dataset;if(!editing||d.f==null)return;
+if(d.c!=null&&d.i!=null)draft.menu[+d.c].items[+d.i][+d.f]=t.value;else if(d.c!=null)draft.menu[+d.c][d.f]=t.value;else draft[d.f]=t.value;});
+function small(f){return new Promise(function(res,rej){var r=new FileReader();r.onerror=function(){rej(new Error('Could not read the photo'));};r.onload=function(){var im=new Image();im.onerror=function(){rej(new Error('This file is not an image'));};im.onload=function(){var m=1200,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',0.8));};im.src=r.result;};r.readAsDataURL(f);});}
+app.addEventListener('change',async function(e){var t=e.target;if(t.dataset.a!=='photo'||!t.files||!t.files[0])return;
+try{var as=(window.claude&&claude.use)?await claude.use('assets'):null;
+if(as){var r=await as.upload(t.files[0]);draft.photo=r.url;}
+else if(window.claude){alert('Photo upload works only when you are signed in to the owner\'s claude.ai account.');return;}
+else{draft.photo=await small(t.files[0]);}
+render();}catch(err){alert('Upload failed: '+((err&&(err.message||err.code))||'error'));}});
+app.addEventListener('click',async function(e){var b=e.target.closest('[data-a]');if(!b)return;var a=b.dataset.a,c=+b.dataset.c,i=+b.dataset.i;
+if(a==='admin'){e.preventDefault();askpw=true;render();}
+else if(a==='closepw'){askpw=false;render();}
+else if(a==='login'){login();}
+else if(a==='cancel'){editing=false;draft=null;render();}
+else if(a==='additem'){draft.menu[c].items.push(['','']);render();}
+else if(a==='delitem'){draft.menu[c].items.splice(i,1);render();}
+else if(a==='addcat'){draft.menu.push({n:'New category',note:'',items:[['','']]});render();}
+else if(a==='delcat'){draft.menu.splice(c,1);render();}
+else if(a==='rmphoto'){draft.photo='';render();}
+else if(a==='save'){await save();}});
+function buildHtml(json){var hd=document.head.cloneNode(true);hd.querySelectorAll('script').forEach(function(n){n.remove();});return '<!DOCTYPE html>\n<html lang="en"><head>'+hd.innerHTML+'</head><body><div id="app"></div><script src="'+QS+'"></'+'script><script id="state" type="application/json">'+json+'</'+'script><script id="code">'+document.getElementById('code').textContent+'</'+'script></body></html>';}
+async function save(){if(saving)return;saving=true;render();
+try{
+draft.menu.forEach(function(c){c.items=c.items.filter(function(i){return String(i[0]).trim()||String(i[1]).trim();});});
+if(draft.newpw&&draft.newpw.trim()){draft.ph=hp(draft.newpw.trim());}delete draft.newpw;
+draft.v=Date.now();
+var json=JSON.stringify(draft).replace(/</g,'\\u003c');
+if(window.claude&&claude.use){
+var ar=await claude.use('artifact');
+if(!ar)throw new Error('Saving works only when you are signed in to the owner\'s claude.ai account (the one that has edit access to this page).');
+await ar.publish(buildHtml(json));return;}
+try{localStorage.setItem('bholenath_state',JSON.stringify(draft));}catch(e){}
+S=draft;draft=null;editing=false;saving=false;render();
+alert('Saved on this browser only. Other people will not see it. To change the website for everyone, make the change on the claude.ai link while signed in to the owner account.');
+}catch(err){saving=false;render();var m=(err&&(err.message||err.code))||'error';if(err&&(err.code==='not_writer'||err.code==='not_granted'))m='You do not have edit access to this page. Sign in to the owner\'s claude.ai account to save changes.';alert('Could not save: '+m);}}
+render();
+try{if(window.claude&&claude.use){claude.use('user').then(function(u){canEdit=!!(u&&u.canEdit&&u.canEdit());}).catch(function(){});}}catch(e){}
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCWzscSWUf38QtWpVpxYBiZGkwBHSygbeg",
+    authDomain: "the-bholenath-fast-food.firebaseapp.com",
+    projectId: "the-bholenath-fast-food",
+    storageBucket: "the-bholenath-fast-food.firebasestorage.app",
+    messagingSenderId: "692958760850",
+    appId: "1:692958760850:web:0f311469a266568067bb4b",
+    measurementId: "G-D6SC1WZ4XG"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>})();</script></body></html>
